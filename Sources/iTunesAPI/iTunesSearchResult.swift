@@ -12,19 +12,12 @@ public struct iTunesSearchResult: Codable {
     public let artistName: String
     public let artistViewUrl: URL?
     public let artworkUrl100: URL?
+    public let artworkUrl600: URL?
     public let collectionType: iTunesSearchResultCollectionType?
     public let collectionName: String?
     public let wrapperType: iTunesSearchResultType
-
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-
-        artistId = try container.decode(Int.self, forKey: .artistId)
-        artistName = try container.decode(String.self, forKey: .artistName)
-        artistViewUrl = try container.decodeIfPresent(URL.self, forKey: .artistViewUrl) ?? nil
-        artworkUrl100 = try container.decodeIfPresent(URL.self, forKey: .artworkUrl100) ?? nil
-        wrapperType = try container.decode(iTunesSearchResultType.self, forKey: .wrapperType)
-        collectionType = try container.decodeIfPresent(iTunesSearchResultCollectionType.self, forKey: .collectionType) ?? nil
-        collectionName = try container.decodeIfPresent(String.self, forKey: .collectionName) ?? nil
-    }
+    public let feedUrl: String?
+    public var collectionId: Int
+    public var releaseDate: Date?
+    public var trackCount: Int
 }
