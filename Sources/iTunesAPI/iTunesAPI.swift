@@ -5,6 +5,9 @@
 //  Created by Shagun Madhikarmi on 18/11/2019.
 //
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 public class iTunesSearchAPI {
     private let session: URLSession
