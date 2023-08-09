@@ -8,7 +8,7 @@
 import Foundation
 
 public struct iTunesSearchResult: Codable {
-    public let artistId: Int
+    public let artistId: Int?
     public let artistName: String
     public let artistViewUrl: URL?
     public let artworkUrl100: URL?
